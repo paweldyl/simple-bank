@@ -17,6 +17,7 @@ func main() {
 		log.Fatal("cannot load config:", err)
 	}
 
+	// time.Sleep(5 * time.Second)
 	conn, err := sql.Open(config.DBDriver, config.DBSource)
 	if err != nil {
 		log.Fatal("cannot connect to db: ", err)
