@@ -79,41 +79,6 @@ func TestCreateUser(t *testing.T) {
 				requireBodyMatchUser(t, recorder.Body, user)
 			},
 		},
-		// {
-		// 	name: "InternalError",
-		// 	body: CreateAccountRequest{
-		// 		Owner:    account.Owner,
-		// 		Currency: account.Currency,
-		// 	},
-		// 	buildStubs: func(store *mockdb.MockStore) {
-		// 		store.EXPECT().
-		// 			CreateAccount(gomock.Any(), gomock.Eq(db.CreateAccountParams{
-		// 				Owner:    account.Owner,
-		// 				Currency: account.Currency,
-		// 				Balance:  0,
-		// 			})).
-		// 			Times(1).
-		// 			Return(db.Account{}, sql.ErrConnDone)
-		// 	},
-		// 	checkResponse: func(t *testing.T, recorder *httptest.ResponseRecorder) {
-		// 		require.Equal(t, http.StatusInternalServerError, recorder.Code)
-		// 	},
-		// },
-		// {
-		// 	name: "InvalidCurrency",
-		// 	body: CreateAccountRequest{
-		// 		Owner:    account.Owner,
-		// 		Currency: "WRONG",
-		// 	},
-		// 	buildStubs: func(store *mockdb.MockStore) {
-		// 		store.EXPECT().
-		// 			CreateAccount(gomock.Any(), gomock.Any()).
-		// 			Times(0)
-		// 	},
-		// 	checkResponse: func(t *testing.T, recorder *httptest.ResponseRecorder) {
-		// 		require.Equal(t, http.StatusBadRequest, recorder.Code)
-		// 	},
-		// },
 	}
 
 	for i := range testCases {

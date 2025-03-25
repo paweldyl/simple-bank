@@ -2,7 +2,6 @@ package db
 
 import (
 	"context"
-	"fmt"
 	"testing"
 	"time"
 
@@ -38,12 +37,7 @@ func TestGetEntry(t *testing.T) {
 	acc := createRandomAccount(t)
 	entry := createRandomEntry(t, acc)
 
-	fmt.Println(entry.AccountID)
-	fmt.Println(entry.Amount)
-
 	entry2, err := testQueries.GetEntry(context.Background(), entry.ID)
-	fmt.Println(entry.AccountID)
-	fmt.Println(entry.Amount)
 	require.NoError(t, err)
 	require.NotEmpty(t, entry2)
 
